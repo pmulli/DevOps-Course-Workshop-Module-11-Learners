@@ -1,0 +1,29 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "acmesub-translations-queue",
+      "connection": ""
+    },
+    {
+      "name": "translationJSON",
+      "type": "table",
+      "tableName": "AcmeTranslations",
+      "partitionKey": "translation",
+      "rowKey": "{rowKey}",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "name": "translationResult",
+      "type": "table",
+      "tableName": "AcmeTranslationsResult",
+      "partitionKey": "translationResult",
+      "direction": "out"
+    }
+
+  ]
+}
